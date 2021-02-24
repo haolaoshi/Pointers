@@ -64,9 +64,112 @@ sizeof(a=b+1) 判断表达式的长度并不会赋值；
 
 变量的值就是分配给该变量的内存位置所存储的数值。
 
-第五章	函数 
+第五章	函数 数组 字符串
+当函数调用一个缺省原型的函数时，编译器默认返回整形；因此，所有函数都应该有原型。
+迭代vs递归： 能用迭代，不用递归
+
+strlen
+strcpy	strncpy
+strcat	strncat
+strcmp	strncmp
+strchr	strrchr	strpbrk
+strstr	
+strspn	strcspn
+strtok
+strerror
+tolower	toupper
+isupper
+memcpy	memove	memcpm	memchr	memset
+
+
+第六章	结构和联合  
+
+结构成员的间接访问 (*cp).f    cp->f 
+联合的所有成员引用的是内存中相同的位置
 
 
 
+ 
+第十一章 动态内存分配
+malloc和free 
+calloc和realloc
+malloc不会初始化，calloc会初始化为0
 
-\\txl\信息中心\常用工具
+第十二章 使用结构和指针
+
+链表
+双链表
+
+第十三章 高级指针
+指向指针的指针
+函数指针： 回调函数
+*++*argv
+
+
+第十四章 预处理器
+#define 和宏；
+宏不可以递归；
+宏与类型无关；
+
+#if  条件编译
+用来注释挺好
+
+#inclue 文件包含
+
+
+第十五章 输入输出
+<stdio.h> 错误报告 perror
+<stdlib.h> exit 终止执行
+绝大多数IO函数在使用前要包含stdio.h
+流：文本流和二进制流
+<stdio.h> 声明了FILE结构，FILE是一个数据结构，用于访问一个流；
+三个标准流；stdin,stdout,stderr;排泄物访谈嘉宾是一个指向FILE结构的指针；
+
+文件使用步骤
+声明一个指针变量FILE*
+通过fopen函数打开
+进行读取写入
+通用fclose关闭
+
+删除或者改名 remove  rename
+临时文件 FILE* tmpfile( );
+临时文件名； char  *tmpnam(char *name);
+
+流错误 feof  ferror clearer
+文件定位  rewind  fgetpos  fsetpos
+
+
+第十六章 标准函数库
+<stdlib.h>算术：abs;labs;div;idiv;
+<stdlib.h>随机数;rand;srand;
+<stdlib.h>字符串转换；atoi;atoll;strol;strtoul;
+<stdlib.h>退出
+<stdlib.h>环境
+<stdlib.h>系统命令
+<stdlib.h>排序和查找
+
+<locale.h>货币和数字
+
+<math.h>浮点型函数；
+<math.h>三角函数
+<math.h>双曲函数
+<math.h>对数和指数
+<math.h>幂
+<math.h>顶数；底数；绝对值和余数
+
+<time.h>处理器时间
+<time.h>当天时间
+<time.h>日期时间转换
+
+<signal.h>处理信号
+<stdarg.h>可变参数
+<assert.h>断言
+
+
+第十七章 ADT
+为什么我还需要手写抽象数据类型？用泛型 
+内存分配；
+堆栈；队列 和树；查找 
+
+第十八章 真正的高手，要会看汇编代码
+判断运行时环境；静态变量和初始化；堆栈帧顺序；寄存器变量；
