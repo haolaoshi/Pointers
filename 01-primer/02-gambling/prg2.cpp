@@ -1,4 +1,4 @@
-#include <stream>
+#include <iostream>
 #include "d_random.h"
 
 
@@ -16,7 +16,7 @@ int main()
     else if(initToss == 7 || initToss == 11)
 	cout << "Initial toss is " << initToss << " Player wins " << endl;
     else{
-	cout << "Target is "<< initToss << " Play on << endl;
+	cout << "Target is "<< initToss << " Play on" << endl;
 	do 
 	{
 	    nextToss = (1 + die.random(6)) + ( 1 + die.random(6));
