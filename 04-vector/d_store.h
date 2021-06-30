@@ -1,5 +1,5 @@
-#include <ostream>
 #include <iostream>
+#include <ostream>
 
 using namespace std;
 
@@ -10,7 +10,8 @@ public:
     store(const T& item = T());
     T getValue() const;
     void setValue(const T& item);
-    friend ostream& operator<<(ostream& ostr,const store<T>& obj);
+    template<typename U>
+    friend ostream& operator<<(ostream& ostr,const store<U>& obj);
 private:
     T value;
 };
