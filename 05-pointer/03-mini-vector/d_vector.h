@@ -1,3 +1,11 @@
+#include <stdexcept>
+#include <iostream>
+
+
+using namespace std;
+
+
+
 template<typename T>
 class miniVector
 {
@@ -19,14 +27,16 @@ public:
 
     void push_back(const T& item);
     void pop_back();
-    int size() const;
+    int size() const{
+	return vSize;
+    };
     bool empty() const;
     int capacity() const;
 
 private:
-    int vapacity;
+    int vCapacity;
     int vSize;
-    T vArr[];
+    T *vArr;
     void reserve(int n,bool copy);
 };
 
@@ -38,8 +48,8 @@ void miniVector<T>::reserve(int n,bool copy)
 
     newArr = new T[n];
     if(newArr == NULL)
-	throw memoryAllocationError(
-	    "miniVector reserve() ; memory allocation failure");
+	//throw memoryAllocationError("miniVector reserve() ; memory allocation failure");
+	throw runtime_error("miniVector reserve() ; memory allocation failure");
 
     if(copy)
 	for(i = 0; i < vSize; i++)
@@ -55,8 +65,7 @@ template<typename T>
 miniVector<T>::miniVector(int size):vSize(0),vCapacity(0),vArr(NULL)
 {
     int i;
-    if(size == 0)
-	return;
+   //if(size == 0) return;
 
     reserve(size,false);
     reserve(size,false);
@@ -95,7 +104,7 @@ void miniVector<T>::push_back(const T& item)
 {
     if(vSize == vCapacity)
     {
-	if(vCapacity == 0
+	if(vCapacity == 0)
 	    reserve(1,false);
 	else
 	    reserve(2 * vCapacity , true);
@@ -110,7 +119,7 @@ template<typename T>
 void miniVector<T>::pop_back()
 {
     if(vSize == 0)
-	throw underflowError("miniVecotr pop back(): vector is empty");
+	throw underflow_error("miniVecotr pop back(): vector is empty");
 
     vSize--;
 }
@@ -119,7 +128,7 @@ template<typename T>
 T& miniVector<T>::back()
 {
     if(vSize == 0)
-	throw underflowError("miniVecotr back() : vector is empty");
+	throw underflow_error("miniVecotr back() : vector is empty");
     return vArr[vSize-1];
 }
 
@@ -127,9 +136,14 @@ template<typename T>
 T& miniVector<T>::operator[](int i)
 {
     if(i < 0 || i >= vSize)
-	throw underflowError("index range error");
+	throw underflow_error("index range error");
 
     return vArr[i];
 }
 
 
+template<typename T>
+int  miniVector<T>::capacity() const
+{
+    return vCapacity;
+}
