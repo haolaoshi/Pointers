@@ -1,4 +1,5 @@
 #include <vector>
+#include <list>
 #include <iostream>
 
 using namespace std;
@@ -43,5 +44,13 @@ void writeVector(const vector<T>& v)
     int i, n = v.size();
     for(i = 0; i < n ; i++)
 	cout << v[i] << " ";
+    cout <<endl;
+}
+
+template<typename T>
+void writeList(const list<T>& alist, const string& separator = " ")
+{
+    for(auto iter = alist.begin(); iter != alist.end() ; iter++)
+	cout<<(*iter)<<"  "; 
     cout <<endl;
 }

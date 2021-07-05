@@ -1,3 +1,6 @@
+#include <list>
+using namespace std;
+
 
 int seqSearch(const int arr[],int first , int last ,int target)
 {
@@ -7,6 +10,16 @@ int seqSearch(const int arr[],int first , int last ,int target)
 
     return i;
 }
+
+template<typename T>
+list<T>::iterator seqSearch2(list<T>::iterator first,list<T>::iterator last,const T& target)
+{
+    auto iter = first;
+    while(iter != last && (*iter != target)) iter++;
+    return iter;
+
+}
+
 
 int binsearch(const int arr[],int first ,int last ,int target)
 {

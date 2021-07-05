@@ -2,7 +2,7 @@
 #include <string>
 
 
-
+using namespace std;
 
 
 
@@ -15,18 +15,18 @@ public:
     {}
     void increment()
     { freq++;}
-    friend bool operator ==(const wordFreq& lhs,const wordReq& rhs)
+    friend bool operator ==(const wordFreq& lhs,const wordFreq& rhs)
     {
 	return lhs.word == rhs.word;
     }
 
-    friend bool operator<(const wordFreq& lhs,const wordReq& rhs)
+    friend bool operator<(const wordFreq& lhs,const wordFreq& rhs)
     {
 	return lhs.word < rhs.word;
     }
     friend ostream&  operator<<(ostream& ostr, const wordFreq& w)
     {
-	ostr << w.worod << " ( " << w.freq << " )" ;
+	ostr << w.word << " ( " << w.freq << " )" ;
 	return ostr;
     }
 
