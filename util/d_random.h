@@ -11,7 +11,7 @@ public:
 	srand(time(NULL));
     }
 
-    int random1(int n){
+    int random(int n){
 	int d =  rand()%n  + 1;
 	return d ; 
     }
